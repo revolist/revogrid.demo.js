@@ -1,0 +1,27 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import * as jsStories from './js-grid.stories.js';
+import * as tsStories from './ts-grid.stories.ts';
+
+<Meta title="Docs/Getting Started"/>
+
+# Getting Started
+#
+## JavaScript
+
+Define webcomponent `<revo-grid class="grid-component"></revo-grid>` and you can access it property in natural way.
+Custom cell template as `cellTemplate` provided. Source as an Array.
+Check Show code for mode details.
+
+<Preview>
+<Story name="JavaScript" id="source-api-javascript-grid--basic-sample"/>
+</Preview>
+
+
+
+## TypeScript
+
+Works exactly same way as Vanilla Js, all typings supported from component folder. Source as an Object.
+
+<Preview>
+<Story name="TypeScript" id="source-api-typescript-grid--basic-sample"/>
+</Preview>
