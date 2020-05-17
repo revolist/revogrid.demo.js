@@ -1,7 +1,7 @@
 {
   "name": "revogridjs",
   "version": "1.0.0",
-  "description": "Demo for using revo-grid with vanila js",
+  "description": "Demo for using revo-grid",
   "scripts": {
     "storybook": "start-storybook -s ./node_modules/@revolist/revogrid/dist -p 6006",
     "build": "build-storybook",
@@ -16,6 +16,7 @@
     "grid",
     "datagrid",
     "virtualgrid",
+    "virtual vue grid",
     "excel"
   ],
   "author": "revolist",
