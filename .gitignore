@@ -2,6 +2,7 @@ dist/
 www/
 loader/
 test/
+storybook-static/
 
 *~
 *.sw[mnpcod]

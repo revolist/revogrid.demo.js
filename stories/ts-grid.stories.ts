@@ -2,7 +2,7 @@ import { applyPolyfills, defineCustomElements } from '@revolist/revogrid/loader'
 import {ColumnDataSchema, DataType} from "@revolist/revogrid/dist/types/interfaces";
 
 export default {
-    title: 'Source Api/Typescript/Grid'
+    title: 'Source Api/Typescript'
 };
 
 

@@ -2,7 +2,7 @@ const {applyPolyfills, defineCustomElements} = require('@revolist/revogrid/loade
 
 
 export default {
-    title: 'Source Api/JavaScript/Grid'
+    title: 'Source Api/JavaScript'
 };
 
 export const basicSample = () => {

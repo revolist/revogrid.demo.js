@@ -1,4 +1,4 @@
-import {addDecorator, addParameters} from "@storybook/client-api";
+import {addDecorator, addParameters} from '@storybook/client-api';
 
 addParameters({
     options: {
@@ -15,7 +15,14 @@ addParameters({
     }
 });
 
-const storyAsString = (story) => `<div class="container m-5">${story}</div>`;
+addParameters({
+    options: {
+        storySort: (a, b) =>
+            a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+    },
+});
+
+const storyAsString = (story) => `<div class='container m-5'>${story}</div>`;
 const storyAsNode = (story) => {
     const head = document.head || document.getElementsByTagName('head')[0];
     const style = document.createElement('style');
@@ -24,7 +31,6 @@ const storyAsNode = (story) => {
 
     style.type = 'text/css';
     style.appendChild(document.createTextNode(css));
-    console.log(head);
 
 
     const wrapper = document.createElement('div');
@@ -35,5 +41,5 @@ const storyAsNode = (story) => {
 
 addDecorator(story => {
     const tale = story();
-    return typeof tale === "string" ? storyAsString(tale) : storyAsNode(tale);
+    return typeof tale === 'string' ? storyAsString(tale) : storyAsNode(tale);
 });
