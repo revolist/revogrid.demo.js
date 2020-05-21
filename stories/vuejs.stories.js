@@ -2,7 +2,6 @@ import VueJs from 'vue';
 import '../assets/local.grid.scss';
 const Vue = VueJs;
 
-const {applyPolyfills, defineCustomElements} = require('@revolist/revogrid/loader');
 const people = require('../assets/people').default;
 
 export default {
@@ -11,8 +10,6 @@ export default {
 
 export const basicSample = () => {
     const vueJsGs = () => {
-        // define custom element '<revo-grid/>', we can ignore applyPolyfills if we are not supporting IE11
-        applyPolyfills().then(() => { defineCustomElements(); });
         Vue.config.ignoredElements = [/revo-\w*/]; // Set ignore web-component and avoid parsing it as vuejs
 
         Vue.component('revogrid-vue-wrapper', {

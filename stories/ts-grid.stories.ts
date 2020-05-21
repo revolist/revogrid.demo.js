@@ -1,16 +1,13 @@
-import { applyPolyfills, defineCustomElements } from '@revolist/revogrid/loader';
 import {ColumnDataSchema, DataType} from "@revolist/revogrid/dist/types/interfaces";
+import {HTMLStencilElement} from "@revolist/revogrid/dist/types/stencil-public-runtime";
+import {Components} from "@revolist/revogrid/dist/types/components";
 
+interface HTMLRevoGridElement extends Components.RevoGrid, HTMLStencilElement {}
 export default {
     title: 'Source Api/Typescript'
 };
 
-
 export const basicSample = () => {
-    // define custom element '<revo-grid/>', we can ignore applyPolyfills if we are not supporting IE11
-    applyPolyfills().then(() => {
-        defineCustomElements();
-    });
 
     // header labels generation
     function generateHeader(index: number) {

@@ -1,15 +1,9 @@
-const {applyPolyfills, defineCustomElements} = require('@revolist/revogrid/loader');
-
 
 export default {
     title: 'Source Api/JavaScript'
 };
 
 export const basicSample = () => {
-    // define custom element '<revo-grid/>', we can ignore applyPolyfills if we are not supporting IE11
-    applyPolyfills().then(() => {
-        defineCustomElements();
-    });
 
     // header labels generation
     function generateHeader(index) {

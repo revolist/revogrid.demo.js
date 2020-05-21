@@ -1,5 +1,7 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
+const Resolver = require('module-to-cdn');
 
 module.exports = {
   stories: ['../stories/**/*.stories.([tj](s|sx)|mdx)', '../docs/**/*.stories.mdx'],
@@ -23,7 +25,29 @@ function webpackConfig(config) {
 
   return {
     ...config,
-    plugins: [...config.plugins, new VueLoaderPlugin()],
+    plugins: [
+        ...config.plugins,
+      new VueLoaderPlugin(),
+
+      new DynamicCdnWebpackPlugin({
+        env: 'development',
+        // verbose: true,
+        resolver: (path, version, env) => {
+          switch (true) {
+            case /vue$/.test(path):
+              return new Promise(resolve => {
+                resolve({
+                  "name": "vue",
+                  "var": "Vue",
+                  "url": `https://unpkg.com/vue@${version}/dist/vue.min.js`,
+                  "version": version
+                });
+              });
+          }
+          return Resolver(path, version, env);
+        }
+      })
+    ],
     module: {
       ...config.module,
       rules: [
@@ -50,7 +74,7 @@ function webpackConfig(config) {
     },
     resolve: {
       ...config.resolve,
-      extensions: [...config.resolve.extensions, '.vue'],
+      extensions: [...config.resolve.extensions, '.vue', '.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'],
       alias: {
         ...config.resolve.alias,
         vue$: require.resolve('vue/dist/vue.esm.js'),
