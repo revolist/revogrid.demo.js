@@ -30,8 +30,7 @@ function webpackConfig(config) {
       new VueLoaderPlugin(),
 
       new DynamicCdnWebpackPlugin({
-        env: 'development',
-        // verbose: true,
+        env: 'production',
         resolver: (path, version, env) => {
           switch (true) {
             case /vue$/.test(path):

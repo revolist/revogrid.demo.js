@@ -26,16 +26,19 @@ export const basicSample = () => {
                             cellTemplate: (h, props) => {
                                 const text = props.model[props.prop];
                                 return h('div', {
-                                    style: {
-                                        backgroundColor: text
-                                    },
-                                    class: 'inner-cell'
+                                    class: `inner-cell ${text}`
                                 },  text);
                             }
                         },
                         {
                             prop: 'gender',
-                            name: 'Gender'
+                            name: 'Gender',
+                            cellTemplate: (h, props) => {
+                                const text = props.model[props.prop];
+                                return h('i', {
+                                    class: `fas ${text === 'male' ? 'fa-mars' : 'fa-venus'}`
+                                },  '');
+                            }
                         }],
                     source: people,
                     dimensions: {
