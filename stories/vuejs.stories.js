@@ -5,7 +5,7 @@ const Vue = VueJs;
 const people = require('../assets/people').default;
 
 export default {
-    title: 'Source Api/VueJs'
+    title: 'Source/Example/VueJs'
 };
 
 export const basicSample = () => {
@@ -13,7 +13,7 @@ export const basicSample = () => {
         Vue.config.ignoredElements = [/revo-\w*/]; // Set ignore web-component and avoid parsing it as vuejs
 
         Vue.component('revogrid-vue-wrapper', {
-            template: '<revo-grid class="grid-component" :source.prop="source" :columns.prop="columns" :dimensions.prop="dimensions" @beforeEdit="beforeEdit" @headerClick="columnClick"/>',
+            template: '<revo-grid class="grid-component" :source.prop="source" :columns.prop="columns" @beforeEdit="beforeEdit" @headerClick="columnClick"/>',
             data() {
                 return {
                     asc: true,
@@ -21,11 +21,14 @@ export const basicSample = () => {
                         {
                             prop: 'name',
                             name: 'Name',
-                            readonly: true
+                            readonly: true,
+                            pin: 'colPinStart',
+                            size: 200
                         },
                         {
                             prop: 'eyeColor',
                             name: 'Eyes',
+                            size: 350,
                             cellTemplate: (h, props) => {
                                 const text = props.model[props.prop];
                                 return h('div', {
@@ -39,13 +42,11 @@ export const basicSample = () => {
                             cellTemplate: (h, props) => {
                                 const text = props.model[props.prop];
                                 return h('i', { class: `fas ${text === 'male' ? 'fa-mars' : 'fa-venus'}` },  '');
-                            }
+                            },
+                            size: 350,
                         }
                     ],
-                    source: people,
-                    dimensions: {
-                        col: { 0: 500 }
-                    }
+                    source: people
                 };
             },
             methods: {

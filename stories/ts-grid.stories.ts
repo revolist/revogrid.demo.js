@@ -1,10 +1,13 @@
-import {ColumnDataSchema, DataType} from "@revolist/revogrid/dist/types/interfaces";
-import {HTMLStencilElement} from "@revolist/revogrid/dist/types/stencil-public-runtime";
+import {
+    ColumnData,
+    ColumnDataSchemaModel
+} from "@revolist/revogrid/dist/types/interfaces";
+import {HTMLStencilElement, VNode} from "@revolist/revogrid/dist/types/stencil-public-runtime";
 import {Components} from "@revolist/revogrid/dist/types/components";
 
 interface HTMLRevoGridElement extends Components.RevoGrid, HTMLStencilElement {}
 export default {
-    title: 'Source Api/Typescript'
+    title: 'Source/Example/Typescript'
 };
 
 export const basicSample = () => {
@@ -22,14 +25,13 @@ export const basicSample = () => {
         return columnLabel;
     }
 
-    // fake data generation as Object input source
     function generateFakeDataObject(rowsNumber: number, colsNumber: number) {
-        const result: DataType[] = [];
-        const headers: ColumnDataSchema[] = [];
+        const result: {[key: string]: string}[] = [];
+        const headers: ColumnData = [];
         const all = colsNumber * rowsNumber;
-        for (let j: number = 0; j < all; j++) {
-            let col: number = j%colsNumber;
-            let row: number = j/colsNumber|0;
+        for (let j = 0; j < all; j++) {
+            let col = j%colsNumber;
+            let row = j/colsNumber|0;
             if (!result[row]) {
                 result[row] = {};
             }
@@ -37,13 +39,27 @@ export const basicSample = () => {
             if (!headers[col]) {
                 headers[col] = {
                     name: generateHeader(col),
-                    prop: col.toString()
+                    prop: col,
+                    pin: j === 4 || j === 10 ? 'colPinStart' : j === 6 || j === 9 ? 'colPinEnd' : undefined,
+                    readonly: !!(col%2),
+                    cellTemplate: (h: Function, props: ColumnDataSchemaModel): VNode => {
+                        return h('div', {
+                            class: {
+                                'inner-cell': true,
+                                'active': j%2
+                            }
+                        }, props.model[props.prop.toString()] || '');
+                    }
                 }
             }
         }
+        const pinnedTopRows = result[10] && [result[10]] || [];
+        const pinnedBottomRows = result[1] && [result[1]] || [];
         return {
             rows: result,
-            headers: headers
+            pinnedTopRows,
+            pinnedBottomRows,
+            headers
         };
     }
 

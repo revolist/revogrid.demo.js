@@ -1,6 +1,6 @@
 
 export default {
-    title: 'Source Api/JavaScript'
+    title: 'Source/Example/JavaScript'
 };
 
 export const basicSample = () => {
