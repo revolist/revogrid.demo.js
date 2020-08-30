@@ -69,7 +69,6 @@ export const basicSample = () => {
         new Vue({ render: h => h('revogrid-vue-wrapper') }).$mount('#app');
     };
 
-
     // storybook
     const div = document.createElement('div');
     div.setAttribute('id', 'app');

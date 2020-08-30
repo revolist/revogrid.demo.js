@@ -4,9 +4,8 @@ const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
 const Resolver = require('module-to-cdn');
 
 module.exports = {
-  stories: ['../stories/**/*.stories.([tj](s|sx)|mdx)', '../docs/**/*.stories.mdx'],
+  stories: ['../stories/**/*.stories.@([tj](s|sx)|mdx)', '../docs/**/*.stories.mdx'],
   addons: [
-    '@storybook/preset-typescript',
     '@storybook/addon-docs',
     '@storybook/addon-essentials',
     '@storybook/addon-actions',

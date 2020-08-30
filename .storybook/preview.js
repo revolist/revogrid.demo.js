@@ -1,27 +1,3 @@
-import {addDecorator, addParameters} from '@storybook/client-api';
-
-addParameters({
-    options: {
-        showRoots: true
-    },
-    dependencies: {
-        //display only dependencies/dependents that have a story in storybook
-        //by default this is false
-        withStoriesOnly: true,
-
-        //completely hide a dependency/dependents block if it has no elements
-        //by default this is false
-        hideEmpty: true,
-    }
-});
-
-addParameters({
-    options: {
-        storySort: (a, b) =>
-            a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
-    },
-});
-
 const storyAsString = (story) => `<div class='container m-5'>${story}</div>`;
 const storyAsNode = (story) => {
     const head = document.head || document.getElementsByTagName('head')[0];
@@ -39,7 +15,25 @@ const storyAsNode = (story) => {
     return wrapper;
 };
 
-addDecorator(story => {
-    const tale = story();
-    return typeof tale === 'string' ? storyAsString(tale) : storyAsNode(tale);
-});
+export const parameters = {
+    options: {
+        storySort: (a, b) =>
+            a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+    },
+    dependencies: {
+        //display only dependencies/dependents that have a story in storybook
+        //by default this is false
+        withStoriesOnly: true,
+
+        //completely hide a dependency/dependents block if it has no elements
+        //by default this is false
+        hideEmpty: true,
+    },
+};
+
+export const decorators = [
+    story => {
+        const tale = story();
+        return typeof tale === 'string' ? storyAsString(tale) : storyAsNode(tale);
+    },
+];

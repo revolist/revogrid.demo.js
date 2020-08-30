@@ -53,4 +53,5 @@ addons.setConfig({
      * @type {String}
      */
     selectedPanel: undefined,
+    showRoots: true,
 });
