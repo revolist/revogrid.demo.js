@@ -1,5 +1,6 @@
-import VueJs from 'vue';
 import '../assets/local.grid.scss';
+
+import VueJs from 'vue';
 const Vue = VueJs;
 
 const people = require('../assets/people').default;
@@ -13,7 +14,7 @@ export const basicSample = () => {
         Vue.config.ignoredElements = [/revo-\w*/]; // Set ignore web-component and avoid parsing it as vuejs
 
         Vue.component('revogrid-vue-wrapper', {
-            template: '<revo-grid class="grid-component" :source.prop="source" :columns.prop="columns" @beforeEdit="beforeEdit" @headerClick="columnClick"/>',
+            template: '<revo-grid class="grid-component" :source.prop="source" :columns.prop="columns" @headerClick="columnClick"/>',
             data() {
                 return {
                     asc: true,
@@ -23,7 +24,7 @@ export const basicSample = () => {
                             name: 'Name',
                             readonly: true,
                             pin: 'colPinStart',
-                            size: 200
+                            size: 250
                         },
                         {
                             prop: 'eyeColor',
@@ -37,22 +38,32 @@ export const basicSample = () => {
                             }
                         },
                         {
+                            prop: 'age',
+                            name: 'Age',
+                            readonly: true,
+                            size: 100
+                        },
+                        {
+                            prop: 'email',
+                            name: 'Mail',
+                            readonly: true,
+                            size: 250
+                        },
+                        {
                             prop: 'gender',
                             name: 'Gender',
+                            pin: 'colPinEnd',
                             cellTemplate: (h, props) => {
                                 const text = props.model[props.prop];
                                 return h('i', { class: `fas ${text === 'male' ? 'fa-mars' : 'fa-venus'}` },  '');
                             },
-                            size: 350,
+                            size: 80,
                         }
                     ],
                     source: people
                 };
             },
             methods: {
-                beforeEdit(e)  {
-                    // e.detail
-                },
                 columnClick(e) {
                     const col = e.detail.prop;
                     const s = this.source.sort((a, b) => {

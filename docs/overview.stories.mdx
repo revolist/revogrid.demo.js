@@ -1,8 +1,8 @@
 import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs/blocks';
-import theme from '../themes/overview.theme';
 
 <Meta
     title="Docs/Overview"
+    id="0_Overview"
     parameters={{
         docs: {
           container: ({ children, context }) => (
@@ -14,4 +14,20 @@ import theme from '../themes/overview.theme';
     }}
 />
 
-<Story id="source-example-overview--basic-sample"/>
+# Fast. Reactive. Shadow.
+
+
+`RevoGrid` is fast virtual based grid webcomponet based on [StencilJs framework](https://stenciljs.com/docs/introduction).
+
+# &nbsp;
+<Story id="overview--story"></Story>
+
+<Canvas withSource="none">
+    <div class="panel">
+        <div class="vue panel-pic"></div>
+        <div class="react panel-pic"></div>
+        <div class="angular panel-pic"></div>
+        <div class="ember panel-pic"></div>
+        <div class="html5 panel-pic"></div>
+    </div>
+</Canvas>

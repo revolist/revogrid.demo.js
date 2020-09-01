@@ -1,9 +1,39 @@
+import VueJs from 'vue';
+const Vue = VueJs;
+
+import RevoComponent from "../components/RevoComponent";
 import {generateHeader} from "../utils/generate-header";
 const people = require('../assets/people').default;
-
 export default {
-    title: 'Source/Example/Overview'
+    title: 'Source/Example/VueJs',
+    id: 'overview'
 };
+
+export const story = () => {
+    const data = generateFakeDataObject(people, 100);
+    const vueJsGs = () => {
+        new Vue({
+            components: {
+                RevoComponent
+            },
+            render: h => h('revo-component', {
+                props: {
+                    source: data.rows,
+                    columns: data.headers,
+                    pinnedTopSource: data.pinnedTopRows,
+                    pinnedBottomSource: data.pinnedBottomRows,
+                }
+            })
+        }).$mount('#app');
+    };
+
+    // storybook
+    const div = document.createElement('div');
+    div.setAttribute('id', 'app');
+    setTimeout(() => vueJsGs(), 0);
+    return div;
+};
+
 
 function generateFakeDataObject(rows, colsNumber) {
     const result = [...rows];
@@ -22,15 +52,14 @@ function generateFakeDataObject(rows, colsNumber) {
                     name: 'Eyes',
                     prop: 'eyeColor',
                     cellTemplate: (h, props) => {
-                        return h('div', {
+                        return h('span', {
                             style: {
-                                backgroundColor: props.model[props.prop],
-                                opacity: '0.6'
+                                color: props.model[props.prop]
                             },
                             class: {
-                                'inner-cell': true
+                                'fas fa-eye-dropper': true
                             }
-                        }, props.model[props.prop] || '');
+                        }, '');
                     },
                 },
                 {
@@ -50,7 +79,7 @@ function generateFakeDataObject(rows, colsNumber) {
         columns.push({
             name: generateHeader(j),
             prop: j
-        })
+        });
     }
 
     for (let i in result) {
@@ -68,21 +97,3 @@ function generateFakeDataObject(rows, colsNumber) {
         headers: columns,
     };
 }
-
-
-export const basicSample = () => {
-    const div = document.createElement('div');
-    div.innerHTML = '<revo-grid class="grid-component"></revo-grid>';
-    const grid = div.querySelector('revo-grid');
-
-    if (grid) {
-        const data = generateFakeDataObject(people, 100);
-        grid.columns = data.headers;
-        grid.source = data.rows;
-        grid.pinnedTopSource = data.pinnedTopRows;
-        grid.pinnedBottomSource = data.pinnedBottomRows;
-    }
-
-    return div;
-};
-

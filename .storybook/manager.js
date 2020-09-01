@@ -1,4 +1,5 @@
 import { addons } from '@storybook/addons';
+import theme from '../themes/global.theme';
 
 addons.setConfig({
     /**
@@ -41,12 +42,12 @@ addons.setConfig({
      * show/hide tool bar
      * @type {Boolean}
      */
-    isToolshown: true,
+    isToolshown: false,
 
     /**
-     * theme storybook, see link below
+     * theme storybook
      */
-    theme: undefined,
+    theme: theme,
 
     /**
      * id to select an addon panel

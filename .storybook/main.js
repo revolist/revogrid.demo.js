@@ -4,7 +4,7 @@ const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
 const Resolver = require('module-to-cdn');
 
 module.exports = {
-  stories: ['../stories/**/*.stories.@([tj](s|sx)|mdx)', '../docs/**/*.stories.mdx'],
+  stories: ['../stories/**/*.stories.@([tj](s|sx))', '../docs/**/*.stories.mdx'],
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-essentials',
@@ -56,17 +56,21 @@ function webpackConfig(config) {
           options: {},
         },
         {
+
           test: /\.scss$/,
           use: [
-            'style-loader',
+            'vue-style-loader',
             'css-loader',
             'sass-loader'
-          ],
-          include: path.resolve(__dirname, '../assets')
+          ]
         },
         {
           test: /\.css$/,
-          use: ['to-string-loader', 'css-loader'],
+          use: [
+            'to-string-loader',
+            'vue-style-loader',
+            'css-loader'
+          ],
         }
       ],
     },
