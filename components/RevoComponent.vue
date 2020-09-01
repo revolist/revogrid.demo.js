@@ -59,7 +59,7 @@
                 .data-header-cell {
                     cursor: pointer;
                     &:hover {
-                        background: #d9fcff;
+                        background: #f1f1f1;
                     }
                 }
             }
