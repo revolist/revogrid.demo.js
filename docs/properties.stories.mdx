@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+export const columnRegular = require('!raw-loader!../interfaces/regular.column.d.ts');
+export const columnGroup = require('!raw-loader!../interfaces/group.column.d.ts');
+
+<Meta title="Docs/Api" id="Docs/ZZ_Api" Component="revo-grid"/>
+
+<ArgsTable of='revo-grid' />
+
+#### ColumnDataSchemaGrouping
+<Canvas mdxSource={columnGroup.default} isExpanded={true} withToolbar={false} className={'canvas-solo-code'}>
+  <Story id='empty'/>
+</Canvas>
+
+#### ColumnDataSchemaRegular
+<Canvas mdxSource={columnRegular.default} isExpanded={true} withToolbar={false} className={'canvas-solo-code'}>
+  <Story id='empty'/>
+</Canvas>

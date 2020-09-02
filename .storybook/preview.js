@@ -1,3 +1,8 @@
+import { setCustomElements } from '@storybook/web-components';
+import customElements from '../assets/custom-elements.json';
+
+setCustomElements(customElements);
+
 const storyAsString = (story) => `<div class='container m-5'>${story}</div>`;
 const storyAsNode = (story) => {
     const head = document.head || document.getElementsByTagName('head')[0];

@@ -1,0 +1,60 @@
+{
+  "version": "1.20",
+  "tags": [
+    {
+      "name": "revo-grid",
+      "properties": [
+        {
+          "name": "colSize",
+          "description": "Indicates default column size.",
+          "type": "number | undefined"
+        },
+        {
+          "name": "columns",
+          "description": "Columns - defines an array of grid columns. Can be column or grouped column.",
+          "type": "(ColumnDataSchemaRegular | ColumnDataSchemaGrouping)[] | undefined"
+        },
+        {
+          "name": "frameSize",
+          "description": "Defines how many rows/columns should be rendered outside visible area.",
+          "type": "number | undefined"
+        },
+        {
+          "name": "pinnedBottomSource",
+          "description": "Pinned bottom Source: {[T in ColumnProp]: any} - defines pinned bottom rows data source.",
+          "type": "DataType[] | undefined"
+        },
+        {
+          "name": "pinnedTopSource",
+          "description": "Pinned top Source: {[T in ColumnProp]: any} - defines pinned top rows data source.",
+          "type": "DataType[] | undefined"
+        },
+        {
+          "name": "range",
+          "description": "When true, user can range selection.",
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "When true, grid in read only mode.",
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "resize",
+          "description": "When true, columns are resizable.",
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "rowSize",
+          "description": "Indicates default row size.",
+          "type": "number | undefined"
+        },
+        {
+          "name": "source",
+          "description": "Source: {[T in ColumnProp]: any} - defines main data source. Can be an Object or 2 dimensional array([][]); ColumnProp - string|number. It is reference for column mapping.",
+          "type": "DataType[] | undefined"
+        }
+      ]
+    }
+  ]
+}

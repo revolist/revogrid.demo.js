@@ -2,6 +2,16 @@ $brown-color: rgba(180, 87, 59, 0.68);
 $green-color: rgba(0, 137, 0, 0.64);
 $blue-color: rgba(67, 106, 221, 0.73);
 
+.canvas-solo-code {
+  > :first-child {
+    display: none;
+  }
+}
+
+#story--empty {
+  display: none;
+}
+
 .grid-component {
   .data {
     &-header-cell,

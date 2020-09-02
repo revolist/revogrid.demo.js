@@ -42,7 +42,7 @@ addons.setConfig({
      * show/hide tool bar
      * @type {Boolean}
      */
-    isToolshown: false,
+    isToolshown: true,
 
     /**
      * theme storybook

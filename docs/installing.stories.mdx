@@ -5,7 +5,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
     id="1_Installing"
     />
 
-## Installing
+# Installing
 
 Integrating a component to a project without a JavaScript framework is straight forward.
 If you're using a simple HTML page, you can add RevoGrid via a script tag.
@@ -42,4 +42,7 @@ And import it as ES Module or from local node_modules directory:
 ```js
 import { applyPolyfills, defineCustomElements } from '@revolist/revogrid/loader';
 
+function myFunction() {
+  defineCustomElements();
+}
 ```

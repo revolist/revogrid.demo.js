@@ -2,7 +2,8 @@ import {generateFakeData} from "../utils/generatorsJs";
 
 export default {
     title: 'Source/Example/JavaScript',
-    id: 'js'
+    id: 'js',
+    component: 'revo-grid',
 };
 
 export const Default = () => {
@@ -15,7 +16,6 @@ export const Default = () => {
         grid.columns = data.headers;
         grid.source = data.rows;
     }
-
     return div;
 };
 

@@ -2,7 +2,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
 <Meta title="Docs/Custom cell"/>
 
-## Custom cell
+# Custom cell
 
 This article explaines how to use custom cell function to display HTML content in a cell.
 This is a powerful feature.
@@ -13,15 +13,15 @@ This is a powerful feature.
 ```js
 const columns = [{
   name: 'Person name',
-    prop: 'name',
-    cellTemplate: (h, props) => {
-      return h('span', {
-        style: {
-          color: 'red'
-        },
-      }, props.model[props.prop]);
-    },
-  }];
+  prop: 'name',
+  cellTemplate: (h, props) => {
+    return h('span', {
+      style: {
+        color: 'red'
+      },
+    }, props.model[props.prop]);
+  },
+}];
 ```
 
 <Canvas>

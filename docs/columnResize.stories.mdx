@@ -1,69 +1,39 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
-<Meta title="Docs/Column size properties"/>
+<Meta title="Docs/Columns/Column size properties"/>
 
 # Column size properties
 
-This article explains how to setup different column properties.
+This article explains how to setup column sizes.
 
 
 <br/>
 
 
-## Column resize
+#### Column resize
 ```js
 const grid = div.querySelector('revo-grid');
 grid.resize = true;
 ```
 
-<Canvas>
-  <Story id="js--column-resize"/>
-</Canvas>
-
 
 <br/>
 
 
-## Width
-```js
-const grid = div.querySelector('revo-grid');
-grid.resize = true;
+#### Column width
+```tsx
+const columns = [{ name: 'Name', prop: 'name', size: 500 }];
+<revo-grid columns={columns}/> // and then in tsx
 ```
 
-<Canvas>
-  <Story id="js--column-resize"/>
-</Canvas>
-
-
-
 <br/>
 
 
-## Minimal width
-```js
-const grid = div.querySelector('revo-grid');
-grid.resize = true;
-```
-
-<Canvas>
-  <Story id="js--column-resize"/>
-</Canvas>
+#### Minimal width (Coming soon)
 
 
 <br/>
 
 
 
-## Maximal width
-```js
-const grid = div.querySelector('revo-grid');
-grid.resize = true;
-```
-
-<Canvas>
-  <Story id="js--column-resize"/>
-</Canvas>
-
-
-<br/>
-
+#### Maximal width (Coming soon)

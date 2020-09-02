@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Columns/Pinned(fixed) columns"/>
+
+# Pinned columns (fixed columns)
+
+``` ts
+
+const columns = [
+  { name: 'Name', prop: 'name', },
+  { name: 'Eyes', prop: 'eyeColor', pin: 'colPinStart', },
+  { name: 'Company', prop: 'company', pin: 'colPinEnd', },
+];
+
+```
+
+<Canvas withSource={'none'}>
+  <Story id="overview--story"/>
+</Canvas>

@@ -65,6 +65,7 @@ function generateFakeDataObject(rows, colsNumber) {
                 {
                     name: 'Age',
                     prop: 'age',
+                    pin: 'colPinEnd',
                 },
                 {
                     name: 'Company',

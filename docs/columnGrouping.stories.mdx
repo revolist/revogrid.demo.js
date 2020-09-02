@@ -1,16 +1,38 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, SourceState } from '@storybook/addon-docs/blocks';
 
-<Meta title="Docs/Column grouping(stacked)"/>
+export const columnRegular = require('!raw-loader!../interfaces/regular.column.d.ts');
+export const columnGroup = require('!raw-loader!../interfaces/group.column.d.ts');
 
-## Column grouping(Stacked columns)
+<Meta title="Docs/Columns/Column grouping(stacked)"/>
 
-This article explains how to render custom header.
+# Column grouping(Stacked columns)
 
-```js
-const grid = div.querySelector('revo-grid');
-grid.resize = true;
+Column can be defined as group or as regular column. To stack column just define it as a group.
+Check interfaces for more information.
+
+``` ts
+
+const columns = [
+  { name: 'Name', prop: 'name', }, // regular column
+
+  // stacked column
+  {
+      name: 'Personal',
+      children: [
+          { name: 'Eyes', prop: 'eyeColor', }, prop: 'age', }, // regular column
+          { name: 'Company', prop: 'company' }, // regular column
+      ]
+  }
+];
+
 ```
 
-<Canvas>
-  <Story id="js--column-resize"/>
+### Group column properties
+<Canvas mdxSource={columnGroup.default} isExpanded={true} withToolbar={false} className={'canvas-solo-code'}>
+  <Story id='empty'/>
+</Canvas>
+
+### Regular column properties
+<Canvas mdxSource={columnRegular.default} isExpanded={true} withToolbar={false} className={'canvas-solo-code'}>
+  <Story id='empty'/>
 </Canvas>

@@ -56,6 +56,16 @@ function webpackConfig(config) {
           options: {},
         },
         {
+          test: /\.jsx$/,
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: [require.resolve('@babel/preset-react'),
+                require.resolve('@babel/preset-env')]
+            }
+          }]
+        },
+        {
 
           test: /\.scss$/,
           use: [

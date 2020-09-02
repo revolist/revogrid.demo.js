@@ -1,0 +1,21 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+export const code = require('!raw-loader!../components/ReactRevoComponent');
+
+<Meta title="Docs/Frameworks/React"/>
+
+# React
+
+React has the easiest way to be integrated.
+RevoGrid provide special wrapper for React. Just import it to your project and it can be used as part of react system.
+
+```jsx
+import {RevoGrid} from '@revolist/revogrid-react';
+// tsx
+<RevoGrid columns={this.state.columns} source={this.state.source} onAfterEdit={this.afterEdit}/>;
+```
+
+
+<Canvas mdxSource={code.default}>
+<Story id="react--default"/>
+</Canvas>
