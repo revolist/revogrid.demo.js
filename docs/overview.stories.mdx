@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs/blocks';
+export const hyperView = (a, b) => (console.log(a.type(), b));
 
 <Meta
     title="Docs/Overview"
@@ -7,7 +8,7 @@ import { Meta, Story, Canvas, DocsContainer } from '@storybook/addon-docs/blocks
         docs: {
           container: ({ children, context }) => (
             <DocsContainer context={context}>
-              <div style={{ margin: '-2rem -100px' }}>{children}</div>
+              <div class="hyper-view">{children}</div>
             </DocsContainer>
           ),
         }
