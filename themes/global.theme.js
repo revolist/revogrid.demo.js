@@ -4,7 +4,7 @@ import logo from '../assets/logo.svg';
 export default create({
     base: 'light',
     brandTitle: 'RevoGrid',
-    brandUrl: 'http://revolist.eu',
+    brandUrl: 'https://github.com/revolist/revogrid',
     brandImage: logo,
 
     appBg: '#FDFDFD',
