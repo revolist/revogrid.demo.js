@@ -4,7 +4,7 @@
   </a>
 </p>
 
-Demo samples for [RevoGrid](https://github.com/revolist/revogrid) component with [Storybook](https://github.com/storybookjs/storybook).
+[Demo](https://revolist.github.io/revogrid) samples for [RevoGrid](https://github.com/revolist/revogrid) component with [Storybook](https://github.com/storybookjs/storybook).
 
 <br/>
 
