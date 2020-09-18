@@ -15,9 +15,39 @@
           "type": "(ColumnDataSchemaRegular | ColumnDataSchemaGrouping)[] | undefined"
         },
         {
+          "name": "editors",
+          "description": "Custom editors register",
+          "type": "Editors | undefined"
+        },
+        {
           "name": "frameSize",
           "description": "Defines how many rows/columns should be rendered outside visible area.",
           "type": "number | undefined"
+        },
+        {
+          "name": "onAfterEdit",
+          "description": "After edit. Triggered when after data applied.",
+          "type": "((event: CustomEvent<BeforeSaveDataDetails>) => void) | undefined"
+        },
+        {
+          "name": "onBeforeAutofill",
+          "description": "Before autofill. Triggered before autofill applied. Use e.preventDefault() to prevent edit data apply.",
+          "type": "((event: CustomEvent<{ newRange: { start: Cell; end: Cell; }; oldRange: { start: Cell; end: Cell; }; }>) => void) | undefined"
+        },
+        {
+          "name": "onBeforeEdit",
+          "description": "Before edit event. Triggered before edit data applied. Use e.preventDefault() to prevent edit data set and use you own.  Use e.val = {your value} to replace edit result with your own.",
+          "type": "((event: CustomEvent<BeforeSaveDataDetails>) => void) | undefined"
+        },
+        {
+          "name": "onBeforeRange",
+          "description": "Before range apply. Triggered before range applied. Use e.preventDefault() to prevent range.",
+          "type": "((event: CustomEvent<{ newRange: { start: Cell; end: Cell; }; oldRange: { start: Cell; end: Cell; }; }>) => void) | undefined"
+        },
+        {
+          "name": "onRowOrderChanged",
+          "description": "Before row order apply. Use e.preventDefault() to prevent row order change.",
+          "type": "((event: CustomEvent<{ from: number; to: number; }>) => void) | undefined"
         },
         {
           "name": "pinnedBottomSource",
@@ -53,6 +83,11 @@
           "name": "source",
           "description": "Source: {[T in ColumnProp]: any} - defines main data source. Can be an Object or 2 dimensional array([][]); ColumnProp - string|number. It is reference for column mapping.",
           "type": "DataType[] | undefined"
+        },
+        {
+          "name": "theme",
+          "description": "Theme name",
+          "type": "string | undefined"
         }
       ]
     }
