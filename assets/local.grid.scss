@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
 $brown-color: rgba(180, 87, 59, 0.68);
 $green-color: rgba(0, 137, 0, 0.64);
 $blue-color: rgba(67, 106, 221, 0.73);
 
+
+
 .canvas-solo-code {
   > :first-child {
     display: none;
+  }
+}
+
+.overview-panel {
+  padding: 0;
+  > div {
+    > div {
+      padding: 0;
+    }
   }
 }
 
@@ -16,18 +29,6 @@ $blue-color: rgba(67, 106, 221, 0.73);
 }
 
 .grid-component {
-  .data {
-    &-header-cell,
-    &-cell {
-      text-align: left;
-      line-height: 30px;
-      padding-left: 5px;
-    }
-
-    &-header-cell {
-      font-weight: 600;
-    }
-  }
 
   .inner-cell {
     box-sizing: border-box;

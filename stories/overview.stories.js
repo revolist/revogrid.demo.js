@@ -16,7 +16,7 @@ export const story = () => {
             components: {
                 RevoComponent
             },
-            render: h => h('revo-component', {
+            render: createElement => createElement('revo-component', {
                 props: {
                     source: data.rows,
                     columns: data.headers,
@@ -51,8 +51,8 @@ function generateFakeDataObject(rows, colsNumber) {
                 {
                     name: 'Eyes',
                     prop: 'eyeColor',
-                    cellTemplate: (h, props) => {
-                        return h('span', {
+                    cellTemplate: (createElement, props) => {
+                        return createElement('span', {
                             style: {
                                 color: props.model[props.prop]
                             },

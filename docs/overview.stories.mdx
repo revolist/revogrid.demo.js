@@ -4,15 +4,6 @@ export const hyperView = (a, b) => (console.log(a.type(), b));
 <Meta
     title="Docs/Overview"
     id="0_Overview"
-    parameters={{
-        docs: {
-          container: ({ children, context }) => (
-            <DocsContainer context={context}>
-              <div class="hyper-view">{children}</div>
-            </DocsContainer>
-          ),
-        }
-    }}
 />
 
 # Fast. Reactive. Shadow.
@@ -21,14 +12,16 @@ export const hyperView = (a, b) => (console.log(a.type(), b));
 `RevoGrid` is fast virtual based grid webcomponet based on [StencilJs framework](https://stenciljs.com/docs/introduction).
 
 # &nbsp;
-<Story id="overview--story"></Story>
+<Canvas withSource="none"  className={'overview-panel'}>
+  <Story id="overview--story"></Story>
+</Canvas>
 
 <Canvas withSource="none">
-    <div class="panel">
-        <div class="vue panel-pic"></div>
-        <div class="react panel-pic"></div>
-        <div class="angular panel-pic"></div>
-        <div class="ember panel-pic"></div>
-        <div class="html5 panel-pic"></div>
-    </div>
+	<div class="panel">
+			<div class="vue panel-pic"></div>
+			<div class="react panel-pic"></div>
+			<div class="angular panel-pic"></div>
+			<div class="ember panel-pic"></div>
+			<div class="html5 panel-pic"></div>
+	</div>
 </Canvas>

@@ -1,6 +1,7 @@
 <template>
     <revo-grid
             class="grid-component"
+            theme="material"
             :source.prop="source"
             :columns.prop="columns"
             :pinnedTopSource.prop="pinnedTopSource"
