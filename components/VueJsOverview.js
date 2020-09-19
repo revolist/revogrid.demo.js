@@ -18,9 +18,15 @@ const RevoGrid = Vue.component('revogrid-vue-wrapper', {
                     size: 250
                 },
                 {
+                    prop: 'drag',
+                    rowDrag: true,
+                    size: 10,
+                },
+                {
                     prop: 'eyeColor',
                     name: 'Eyes',
                     size: 350,
+                    rowDrag: true,
                     cellTemplate: (h, props) => {
                         const text = props.model[props.prop];
                         return h('div', {

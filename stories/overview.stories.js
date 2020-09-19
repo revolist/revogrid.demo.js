@@ -49,6 +49,10 @@ function generateFakeDataObject(rows, colsNumber) {
             name: 'Personal',
             children: [
                 {
+                    rowDrag: true,
+                    size: 50
+                },
+                {
                     name: 'Eyes',
                     prop: 'eyeColor',
                     cellTemplate: (createElement, props) => {
