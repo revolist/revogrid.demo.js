@@ -12,6 +12,17 @@ $blue-color: rgba(67, 106, 221, 0.73);
   }
 }
 
+.canvas-mdx {
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    code {
+      white-space: pre-wrap;
+    }
+  }
+}
+
 .overview-panel {
   padding: 0;
   > div {

@@ -1,23 +1,18 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
-import Readme from '../assets/api-revo.md';
+import Readme from './api-doc.md';
 
 export const columnRegular = require('!raw-loader!../interfaces/regular.column.d.ts');
-export const columnGroup = require('!raw-loader!../interfaces/group.column.d.ts');
+export const columnGroup = require('!raw-loader!@revolist/revogrid/dist/types/interfaces.d.ts');
 
 <Meta title="Docs/Api" id="Docs/ZZ_Api" Component="revo-grid"/>
 
 # API
 
-<Canvas withSource="none">
+<Canvas withSource="none" className={'canvas-mdx'}>
   <Description markdown={Readme} />
 </Canvas>
 
-#### ColumnDataSchemaGrouping
+#### Type description
 <Canvas mdxSource={columnGroup.default} isExpanded={true} withToolbar={false} className={'canvas-solo-code'}>
-  <Story id='empty'/>
-</Canvas>
-
-#### ColumnDataSchemaRegular
-<Canvas mdxSource={columnRegular.default} isExpanded={true} withToolbar={false} className={'canvas-solo-code'}>
   <Story id='empty'/>
 </Canvas>
