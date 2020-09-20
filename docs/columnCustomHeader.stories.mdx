@@ -4,4 +4,26 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
 # Column custom header
 
-This article will appear shortly.
+This article explaines how to use custom header function to display HTML content in a header.
+This is a powerful feature.
+
+
+`Remember` to escape any HTML code that could be used for XSS attacks.
+
+```js
+const columns = [{
+  name: 'Person name',
+  prop: 'name',
+  columnTemplate: (createElement, column) => {
+    return createElement('span', {
+      style: {
+        color: 'red'
+      },
+    }, column.name);
+  },
+}];
+```
+
+<Canvas>
+  <Story id="js--custom-header"/>
+</Canvas>

@@ -24,12 +24,42 @@ export const CustomCell = () => {
     const columns = [{
         name: 'Person',
         prop: 'name',
-        cellTemplate: (h, props) => {
-            return h('span', {
+        cellTemplate: (createElement, props) => {
+            return createElement('span', {
                 style: {
                     color: 'red'
                 },
             }, props.model[props.prop]);
+        },
+    }];
+
+    const source = [{
+        name: 'Steve'
+    }, {
+        name: 'John'
+    }];
+
+    const div = document.createElement('div');
+    div.innerHTML = '<revo-grid class="grid-component small"></revo-grid>';
+
+    const grid = div.querySelector('revo-grid');
+    grid.columns = columns;
+    grid.source = source;
+
+    return div;
+};
+
+
+export const CustomHeader = () => {
+    const columns = [{
+        name: 'Person',
+        prop: 'name',
+        columnTemplate: (createElement, column) => {
+            return createElement('span', {
+                style: {
+                    color: 'red'
+                },
+            }, column.name);
         },
     }];
 
