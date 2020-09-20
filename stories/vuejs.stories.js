@@ -10,14 +10,12 @@ export default {
 
 export const basicSample = () => {
     const vueJsGs = () => {
-        new Vue(
-            {
-                components: {
-                    RevoGrid
-                },
-                render: h => h('revogrid-vue-wrapper'),
-            }
-        ).$mount('#app');
+        new Vue({
+            components: {
+                RevoGrid
+            },
+            render: createElement => createElement('revogrid-vue-wrapper'),
+        }).$mount('#app');
     };
 
     // storybook

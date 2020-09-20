@@ -5,7 +5,7 @@ import RevoComponent from "../components/RevoComponent";
 import {generateHeader} from "../utils/generate-header";
 const people = require('../assets/people').default;
 export default {
-    title: 'Source/Example/VueJs',
+    title: 'Source/Example/Overview',
     id: 'overview'
 };
 

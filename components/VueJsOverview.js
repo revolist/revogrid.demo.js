@@ -18,11 +18,6 @@ const RevoGrid = Vue.component('revogrid-vue-wrapper', {
                     size: 250
                 },
                 {
-                    prop: 'drag',
-                    rowDrag: true,
-                    size: 10,
-                },
-                {
                     prop: 'eyeColor',
                     name: 'Eyes',
                     size: 350,
