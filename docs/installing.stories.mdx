@@ -14,7 +14,7 @@ If you're using a simple HTML page, you can add RevoGrid via a script tag.
 ### Simple cdn script import
 For example, we could load the component through unpkg like this:
 ```js
-<script src="https://unpkg.com/@revolist/revogrid@latest/dist/revo-grid.js"></script>
+<script src="https://unpkg.com/@revolist/revogrid@latest/dist/revo-grid/revo-grid.js"></script>
 ```
 
 
@@ -26,9 +26,7 @@ Note that in this scenario `applyPolyfills` is needed if you are targeting Edge 
 ```js
 <script type="module">
     import { applyPolyfills, defineCustomElements } from "https://unpkg.com/@revolist/revogrid@latest/loader";
-    applyPolyfills().then(() => {
-      defineCustomElements();
-    });
+    defineCustomElements();
 </script>
 ```
 
