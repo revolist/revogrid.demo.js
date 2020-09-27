@@ -57,8 +57,8 @@
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
-    "@revolist/revogrid": "1.5.1",
-    "@revolist/revogrid-react": "1.0.1",
+    "@revolist/revogrid": "1.5.10",
+    "@revolist/revogrid-react": "1.4.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "vue": "^2.6.12"

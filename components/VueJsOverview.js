@@ -5,7 +5,7 @@ const people = require('../assets/people').default;
 Vue.config.ignoredElements = [/revo-\w*/];
 
 const RevoGrid = Vue.component('revogrid-vue-wrapper', {
-    template: '<revo-grid class="grid-component" :source.prop="source" :columns.prop="columns" @headerClick="columnClick"/>',
+    template: '<revo-grid class="grid-component left" theme="compact" :source.prop="source" :columns.prop="columns"/>',
     data() {
         return {
             asc: true,
@@ -13,19 +13,22 @@ const RevoGrid = Vue.component('revogrid-vue-wrapper', {
                 {
                     prop: 'name',
                     name: 'Name',
+                    sortable: true,
                     readonly: true,
-                    pin: 'colPinStart',
                     size: 250
                 },
                 {
                     prop: 'eyeColor',
                     name: 'Eyes',
-                    size: 350,
+                    size: 100,
                     rowDrag: true,
-                    cellTemplate: (h, props) => {
+                    cellTemplate: (createElement, props) => {
                         const text = props.model[props.prop];
-                        return h('div', {
-                            class: `inner-cell ${text}`
+                        return createElement('span', {
+                            class: 'bubble small',
+                            style: {
+                                backgroundColor: props.model[props.prop]
+                            },
                         },  text);
                     }
                 },
@@ -44,28 +47,15 @@ const RevoGrid = Vue.component('revogrid-vue-wrapper', {
                 {
                     prop: 'gender',
                     name: 'Gender',
-                    pin: 'colPinEnd',
-                    cellTemplate: (h, props) => {
+                    cellTemplate: (_h, props) => {
                         const text = props.model[props.prop];
-                        return h('i', { class: `fas ${text === 'male' ? 'fa-mars' : 'fa-venus'}` },  '');
+                        return text === 'male' ? '♂' : '♀';
                     },
                     size: 80,
                 }
             ],
             source: people
         };
-    },
-    methods: {
-        columnClick(e) {
-            const col = e.detail.prop;
-            const s = this.source.sort((a, b) => {
-                if(a[col] < b[col]) { return this.asc ? -1 : 1; }
-                if(a[col] > b[col]) { return this.asc ? 1 : -1; }
-                return 0;
-            });
-            this.asc = !this.asc;
-            this.source = [...s];
-        }
     },
 });
 

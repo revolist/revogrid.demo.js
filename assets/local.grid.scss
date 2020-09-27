@@ -36,10 +36,13 @@ $blue-color: rgba(67, 106, 221, 0.73);
   display: none;
 }
 
-.hyper-view {
-}
-
 .grid-component {
+
+  &.left {
+    &, revogr-data {
+      text-align: left;
+    }
+  }
 
   .inner-cell {
     box-sizing: border-box;
@@ -50,15 +53,33 @@ $blue-color: rgba(67, 106, 221, 0.73);
       background-color: #fff295;
       box-shadow: 0 -1px 0 #ecde75 inset, -1px 0 0 #ecde75 inset;
     }
+  }
+}
 
-    &.brown {
-      background-color: $brown-color;
-    }
-    &.green {
-      background-color: $green-color;
-    }
-    &.blue {
-      background-color: $blue-color;
-    }
+.bubble {
+  $h: 32px;
+  $h-small: 23px;
+
+  color: white;
+  border: none;
+  cursor: default;
+  height: $h;
+  display: inline-flex;
+  outline: 0;
+  padding: 0 10px;
+  font-size: 0.8125rem;
+  box-sizing: border-box;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: 16px;
+  vertical-align: middle;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #e0e0e0;
+  opacity: .7;
+
+  &.small {
+    height: $h-small;
   }
 }

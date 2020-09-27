@@ -1,9 +1,11 @@
 import VueJs from 'vue';
-const Vue = VueJs;
-
 import RevoComponent from "../components/RevoComponent";
 import {generateHeader} from "../utils/generate-header";
+
 const people = require('../assets/people').default;
+const Vue = VueJs;
+
+
 export default {
     title: 'Source/Example/Overview',
     id: 'overview'
@@ -41,6 +43,9 @@ function generateFakeDataObject(rows, colsNumber) {
         {
             name: 'Name',
             prop: 'name',
+            rowDrag: true,
+            sortable: true,
+            order: 'asc',
             size: 200,
             pin: 'colPinStart',
             readonly: true
@@ -49,29 +54,26 @@ function generateFakeDataObject(rows, colsNumber) {
             name: 'Personal',
             children: [
                 {
-                    rowDrag: true,
-                    size: 50
-                },
-                {
                     name: 'Eyes',
                     prop: 'eyeColor',
+                    sortable: true,
                     cellTemplate: (createElement, props) => {
                         return createElement('span', {
+                            class: 'bubble',
                             style: {
-                                color: props.model[props.prop]
+                                backgroundColor: props.model[props.prop]
                             },
-                            class: {
-                                'fas fa-eye-dropper': true
-                            }
-                        }, '');
+                        }, props.model[props.prop]);
                     },
                 },
                 {
+                    sortable: true,
                     name: 'Age',
                     prop: 'age',
                     pin: 'colPinEnd',
                 },
                 {
+                    sortable: true,
                     name: 'Company',
                     prop: 'company',
                     size: 100,

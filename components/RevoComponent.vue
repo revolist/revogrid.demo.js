@@ -2,6 +2,7 @@
     <revo-grid
             class="grid-component"
             theme="material"
+            range="true"
             :source.prop="source"
             :columns.prop="columns"
             :pinnedTopSource.prop="pinnedTopSource"
@@ -38,32 +39,8 @@
                 asc: true
             };
         },
-        methods: {
-            columnClick(e) {
-                const col = e.detail.prop;
-                const s = this.source.sort((a, b) => {
-                    if(a[col] < b[col]) { return this.asc ? -1 : 1; }
-                    if(a[col] > b[col]) { return this.asc ? 1 : -1; }
-                    return 0;
-                });
-                this.asc = !this.asc;
-                this.source = [...s];
-            }
-        },
     }
 </script>
 
 <style lang="scss">
-    .grid-component {
-        .header-wrapper {
-            :not(.group-row) {
-                .data-header-cell {
-                    cursor: pointer;
-                    &:hover {
-                        background: #f1f1f1;
-                    }
-                }
-            }
-        }
-    }
 </style>
