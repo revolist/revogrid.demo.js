@@ -1,14 +1,3 @@
-<template>
-    <revo-grid
-            class="grid-component"
-            theme="material"
-            range="true"
-            :source.prop="source"
-            :columns.prop="columns"
-            :pinnedTopSource.prop="pinnedTopSource"
-            :pinnedBottomSource.prop="pinnedBottomSource"
-            @headerClick="columnClick"/>
-</template>
 
 <script>
     import Vue from 'vue';
@@ -16,31 +5,21 @@
     Vue.config.ignoredElements = [/revo-\w*/]; // Set ignore web-component and avoid parsing it as vuejs
     export default {
         name: 'revo-component',
-        props: {
-            source: {
-                type: Array,
-                default: () => ([]),
-            },
-            columns: {
-                type: Array,
-                default: () => ([]),
-            },
-            pinnedTopSource: {
-                type: Array,
-                default: () => ([]),
-            },
-            pinnedBottomSource: {
-                type: Array,
-                default: () => ([]),
-            }
-        },
+        props: ['canFocus', 'colSize', 'columns', 'editors', 'frameSize', 'pinnedBottomSource', 'pinnedTopSource', 'range',
+        'readonly', 'refresh', 'resize', 'rowClass', 'rowSize', 'source', 'theme'],
         data() {
             return {
                 asc: true
             };
         },
+        render: function (createElement) {
+            return createElement(
+                'revo-grid',
+                {
+                   class: "grid-component",
+                   domProps: this.$props
+                },
+            );
+        },
     }
 </script>
-
-<style lang="scss">
-</style>

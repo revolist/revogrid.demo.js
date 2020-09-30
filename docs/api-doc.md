@@ -1,5 +1,4 @@
 # 
-
 <!-- Auto Generated Below -->
 
 
@@ -35,4 +34,58 @@
 | `beforeRangeEdit` | Before range edit event. Triggered before range data applied, when range selection happened. Use e.preventDefault() to prevent edit data set and use you own.                           | `CustomEvent<{ data: DataLookup; type: DimensionRows; }>`                                                                                                                |
 | `headerClick`     | On header click.                                                                                                                                                                        | `CustomEvent<ColumnRegular>`                                                                                                                                             |
 | `rowDragStart`    | Row order change started. Use e.preventDefault() to prevent row order change.  Use e.text = 'new name' to change item name on start.                                                    | `CustomEvent<{ pos: PositionItem; text: string; }>`                                                                                                                      |
-| `rowOrderChanged` | Before row order apply. Use e.preventDefault() to prevent row order change.                                                                                                             | `CustomEvent<{ from: number; to: number; }>`                        
+| `rowOrderChanged` | Before row order apply. Use e.preventDefault() to prevent row order change.                                                                                                             | `CustomEvent<{ from: number; to: number; }>`                                                                                                                             |
+
+
+## Methods
+
+### `refresh(type?: RevoGrid.DimensionRows | 'all') => Promise<void>`
+
+Refreshes data viewport.
+Can be specific part as row or pinned row or 'all' by default.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `scrollToColumnIndex(coordinate?: number) => Promise<void>`
+
+Scrolls view port to specified column index
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `scrollToColumnProp(prop: RevoGrid.ColumnProp) => Promise<void>`
+
+Scrolls view port to specified column prop
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `scrollToCoordinate(cell: Partial<Selection.Cell>) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `scrollToRow(coordinate?: number) => Promise<void>`
+
+Scrolls view port to specified row index
+
+#### Returns
+
+Type: `Promise<void>`
+
+

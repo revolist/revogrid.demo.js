@@ -54,6 +54,37 @@ $blue-color: rgba(67, 106, 221, 0.73);
       box-shadow: 0 -1px 0 #ecde75 inset, -1px 0 0 #ecde75 inset;
     }
   }
+
+  revogr-viewport .colPinStart revogr-data .row {
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 1px;
+      bottom: 1px;
+      width: 3px;
+      border-radius: 5px;
+    }
+    &.green {
+      &:before {
+        content: '';
+        background-color: greenyellow;
+      }
+    }
+
+    &.brown {
+      &:before {
+        content: '';
+        background-color: orange;
+      }
+    }
+
+    &.blue {
+      &:before {
+        content: '';
+        background-color: rgb(43, 128, 226);
+      }
+    }
+  }
 }
 
 .bubble {

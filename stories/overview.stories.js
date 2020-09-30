@@ -5,6 +5,48 @@ import {generateHeader} from "../utils/generate-header";
 const people = require('../assets/people').default;
 const Vue = VueJs;
 
+const columns = [
+	{
+		name: 'Name',
+		prop: 'name',
+		rowDrag: true,
+		sortable: true,
+		order: 'asc',
+		size: 200,
+		pin: 'colPinStart',
+		// readonly: true
+	},
+	{
+		name: 'Personal',
+		children: [
+			{
+				name: 'Eyes',
+				prop: 'eyeColor',
+				sortable: true,
+				cellTemplate: (createElement, props) => {
+						return createElement('span', {
+								class: 'bubble',
+								style: {
+										backgroundColor: props.model[props.prop]
+								},
+						}, props.model[props.prop]);
+				},
+			},
+			{
+				sortable: true,
+				name: 'Age',
+				prop: 'age',
+				// pin: 'colPinEnd',
+			},
+			{
+				sortable: true,
+				name: 'Company',
+				prop: 'company',
+				size: 100,
+			},
+		]
+	}
+];
 
 export default {
     title: 'Source/Example/Overview',
@@ -21,9 +63,12 @@ export const story = () => {
             render: createElement => createElement('revo-component', {
                 props: {
                     source: data.rows,
-                    columns: data.headers,
+										columns: data.headers,
+										theme: 'material',
+										rowClass: 'highlighted',
+										range: true,
                     pinnedTopSource: data.pinnedTopRows,
-                    pinnedBottomSource: data.pinnedBottomRows,
+                    // pinnedBottomSource: data.pinnedBottomRows,
                 }
             })
         }).$mount('#app');
@@ -39,48 +84,6 @@ export const story = () => {
 
 function generateFakeDataObject(rows, colsNumber) {
     const result = [...rows];
-    const columns = [
-        {
-            name: 'Name',
-            prop: 'name',
-            rowDrag: true,
-            sortable: true,
-            order: 'asc',
-            size: 200,
-            pin: 'colPinStart',
-            readonly: true
-        },
-        {
-            name: 'Personal',
-            children: [
-                {
-                    name: 'Eyes',
-                    prop: 'eyeColor',
-                    sortable: true,
-                    cellTemplate: (createElement, props) => {
-                        return createElement('span', {
-                            class: 'bubble',
-                            style: {
-                                backgroundColor: props.model[props.prop]
-                            },
-                        }, props.model[props.prop]);
-                    },
-                },
-                {
-                    sortable: true,
-                    name: 'Age',
-                    prop: 'age',
-                    pin: 'colPinEnd',
-                },
-                {
-                    sortable: true,
-                    name: 'Company',
-                    prop: 'company',
-                    size: 100,
-                },
-            ]
-        }
-    ];
 
     for (let j = 0; j < colsNumber; j++) {
         columns.push({
@@ -90,6 +93,7 @@ function generateFakeDataObject(rows, colsNumber) {
     }
 
     for (let i in result) {
+        result[i]['highlighted'] = result[i]['eyeColor'];
         for (let j = 0; j < colsNumber; j++) {
             result[i][j] = `${i}:${j}`;
         }
@@ -98,9 +102,9 @@ function generateFakeDataObject(rows, colsNumber) {
     const pinnedBottomRows = result[1] && [result[1]] || [];
 
     return {
-        rows: result,
-        pinnedTopRows,
-        pinnedBottomRows,
-        headers: columns,
+			rows: result,
+			pinnedTopRows,
+			pinnedBottomRows,
+			headers: columns,
     };
 }
