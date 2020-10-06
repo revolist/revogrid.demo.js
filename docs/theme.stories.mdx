@@ -1,22 +1,22 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
-<Meta title="Docs/Theme packages"/>
+<Meta title="Docs/Themes/Overview" id="themeOverview"/>
 
 # Themes
 
 By default there are several themes available and their number will grow with time:
+
+
+Light:
 - Default (Excel like) - `default`;
 - Material - `material`;
 - Material-compact - `compact`;
 
-Upcoming(In development):
-- Dark material  - `darkmaterial`;
+Dark:
+- Dark material  - `darkMaterial`;
+- Dark material-compact  - `darkCompact`;
 
 ```js
 const grid = div.querySelector('revo-grid');
 grid.theme = 'material';
 ```
-
-<Canvas withSource={'none'}>
-  <Story id="overview--story"/>
-</Canvas>

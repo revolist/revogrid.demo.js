@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { themes } from '@storybook/theming';
+import * as stories from '../stories/overview.stories.js';
+
+<Meta title="Docs/Themes/Material Dark" id="dark" parameters={{
+    docs: {
+        theme: themes.dark,
+    }
+}}/>
+
+# Theme dark
+
+
+```js
+const grid = div.querySelector('revo-grid');
+grid.theme = 'darkMaterial';
+
+
+// or
+const grid = div.querySelector('revo-grid');
+grid.theme = 'darkCompact';
+```
+
+
+<Canvas withSource={'none'}>
+  <Story name="Dark material" args={{
+      theme: "darkMaterial"
+    }}>
+      {args => stories.story(args)}
+  </Story>
+</Canvas>

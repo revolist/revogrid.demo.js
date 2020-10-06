@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import * as stories from '../stories/overview.stories.js';
+
+<Meta title="Docs/Themes/Material Light"/>
+
+## Theme material
+
+
+```js
+const grid = div.querySelector('revo-grid');
+grid.theme = 'material';
+```
+
+<Canvas withSource={'none'}>
+  <Story name="Material" args={{
+      theme: "material"
+    }}>
+      {args => stories.story(args)}
+  </Story>
+</Canvas>
+
+## Theme material compact
+
+```js
+const grid = div.querySelector('revo-grid');
+grid.theme = 'compact';
+```
+
+<Canvas withSource={'none'}>
+  <Story name="Compact" args={{
+      theme: "compact"
+    }}>
+      {args => stories.story(args)}
+  </Story>
+</Canvas>

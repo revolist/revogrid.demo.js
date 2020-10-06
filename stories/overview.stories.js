@@ -53,8 +53,12 @@ export default {
     id: 'overview'
 };
 
-export const story = () => {
-    const data = generateFakeDataObject(people, 100);
+export const story = (a, b) => {
+	const data = generateFakeDataObject(people, 100);
+	let theme = 'material';
+	if (a.theme) {
+		theme = a.theme;
+	}
     const vueJsGs = () => {
         new Vue({
             components: {
@@ -63,10 +67,10 @@ export const story = () => {
             render: createElement => createElement('revo-component', {
                 props: {
                     source: data.rows,
-										columns: data.headers,
-										theme: 'material',
-										rowClass: 'highlighted',
-										range: true,
+					columns: data.headers,
+					theme: theme,
+					rowClass: 'highlighted',
+					range: true,
                     pinnedTopSource: data.pinnedTopRows,
                     // pinnedBottomSource: data.pinnedBottomRows,
                 }

@@ -1,6 +1,5 @@
 // header labels generation
 import {RevoGrid} from "@revolist/revogrid/dist/types/interfaces";
-import {VNode} from "@revolist/revogrid/dist/types/stencil-public-runtime";
 
 export function generateHeader(index: number) {
     let dividend: number = index + 1;
@@ -28,26 +27,12 @@ export function generateFakeDataObject(rowsNumber: number, colsNumber: number) {
         if (!headers[col]) {
             headers[col] = {
                 name: generateHeader(col),
-                prop: col,
-                pin: j === 4 || j === 10 ? 'colPinStart' : j === 6 || j === 9 ? 'colPinEnd' : undefined,
-                readonly: !!(col%2),
-                cellTemplate: (h: Function, props: RevoGrid.ColumnDataSchemaModel): VNode => {
-                    return h('div', {
-                        class: {
-                            'inner-cell': true,
-                            'active': j%2
-                        }
-                    }, props.model[props.prop.toString()] || '');
-                }
+                prop: col
             }
         }
     }
-    const pinnedTopRows = result[10] && [result[10]] || [];
-    const pinnedBottomRows = result[1] && [result[1]] || [];
     return {
         rows: result,
-        pinnedTopRows,
-        pinnedBottomRows,
         headers
     };
 }

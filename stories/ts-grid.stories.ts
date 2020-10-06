@@ -4,7 +4,8 @@ import {generateFakeDataObject} from '../utils/generators';
 
 interface HTMLRevoGridElement extends Components.RevoGrid, HTMLStencilElement {}
 export default {
-    title: 'Source/Example/Typescript'
+    title: 'Source/Example/Typescript',
+    id: 'ts'
 };
 
 export const basicSample = () => {
