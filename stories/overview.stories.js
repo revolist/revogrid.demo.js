@@ -65,13 +65,16 @@ export const story = (a, b) => {
                 RevoComponent
             },
             render: createElement => createElement('revo-component', {
+				attrs: {
+					'row-headers': true,
+				},
                 props: {
                     source: data.rows,
 					columns: data.headers,
 					theme: theme,
 					rowClass: 'highlighted',
 					range: true,
-                    pinnedTopSource: data.pinnedTopRows,
+					pinnedTopSource: data.pinnedTopRows,
                     // pinnedBottomSource: data.pinnedBottomRows,
                 }
             })
