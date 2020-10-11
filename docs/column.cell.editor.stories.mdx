@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 
-<Meta title="Docs/Custom editor"/>
+<Meta title="Docs/Column and cell/Cell/Custom editor"/>
 
 # Custom editor
 
@@ -22,7 +22,8 @@ class TextEditor {
 
     constructor(
         public column: RevoGrid.ColumnDataSchemaRegular,
-        private editCallback: (value: any) => void
+        saveCallback: (value: any) => void,
+        closeCallback: () => void
     ) {}
 
     // optional, called after editor rendered
@@ -45,7 +46,7 @@ class TextEditor {
 ### Function format
 ```js
 
-function TextEditor(column, editCallback) {
+function TextEditor(column, saveCallback, closeCallback) {
   return {
       element: null, // will be setup up after render
       editCell: null, // will be setup up after render

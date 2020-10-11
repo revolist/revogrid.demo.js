@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
-<Meta title="Docs/Custom cell"/>
+<Meta title="Docs/Column and cell/Cell/Custom renderer"/>
 
 # Custom cell
 
@@ -14,8 +14,8 @@ This is a powerful feature.
 const columns = [{
   name: 'Person name',
   prop: 'name',
-  cellTemplate: (h, props) => {
-    return h('span', {
+  cellTemplate: (createElement, props) => {
+    return createElement('span', {
       style: {
         color: 'red'
       },

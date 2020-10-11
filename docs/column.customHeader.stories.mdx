@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
-<Meta title="Docs/Columns/Custom header(coming soon)"/>
+<Meta title="Docs/Column and cell/Custom header"/>
 
 # Column custom header
 
@@ -14,6 +14,8 @@ This is a powerful feature.
 const columns = [{
   name: 'Person name',
   prop: 'name',
+
+  // use this to return custom html per column
   columnTemplate: (createElement, column) => {
     return createElement('span', {
       style: {

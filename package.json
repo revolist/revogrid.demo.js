@@ -27,7 +27,7 @@
     "@babel/core": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
-    "@revolist/revogrid": "^1.6.1",
+    "@revolist/revogrid": "^1.6.17",
     "@revolist/revogrid-react": "latest",
     "@storybook/addon-a11y": "6.0.22",
     "@storybook/addon-actions": "6.0.22",

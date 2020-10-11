@@ -57,7 +57,8 @@ export const CustomHeader = () => {
         columnTemplate: (createElement, column) => {
             return createElement('span', {
                 style: {
-                    color: 'red'
+                    background: 'red',
+                    color: 'white'
                 },
             }, column.name);
         },
